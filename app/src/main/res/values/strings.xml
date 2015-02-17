@@ -4,5 +4,10 @@
     <string name="app_name">CSBrainTraining</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="LoginTitle">Please login</string>
+    <string name="RegisterButtonText">Not a member? Click here to Register</string>
+    <string name="title_activity_main_interface">MainInterface</string>
+    <string name="Welcome">Welcome Back!</string>
 
 </resources>
