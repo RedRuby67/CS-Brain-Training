@@ -9,5 +9,6 @@
     <string name="RegisterButtonText">Not a member? Click here to Register</string>
     <string name="title_activity_main_interface">MainInterface</string>
     <string name="Welcome">Welcome Back!</string>
+    <string name="title_activity_register">RegisterActivity</string>
 
 </resources>
