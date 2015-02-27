@@ -1,9 +1,15 @@
 package com.roninsamakun.csbraintraining;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+// import needed libraries for event handling
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class RegisterActivity extends ActionBarActivity {
@@ -12,6 +18,15 @@ public class RegisterActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // create object to refer to sign up Button
+        Button signupButton = (Button) findViewById(R.id.SignUpButton);
+        // create event listener for click that will point from Main Activity to LoginActivity
+        signupButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            }
+        });
     }
 
 
