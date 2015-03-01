@@ -10,5 +10,7 @@
     <string name="title_activity_main_interface">MainInterface</string>
     <string name="Welcome">Welcome Back!</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="username">Name</string>
+    <string name="userBirthDate">Birth Date</string>
 
 </resources>

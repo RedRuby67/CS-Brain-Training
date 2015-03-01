@@ -1,15 +1,14 @@
 package com.roninsamakun.csbraintraining;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-// import needed libraries for event handling
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
+// import needed libraries for event handling
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -21,13 +20,18 @@ public class LoginActivity extends ActionBarActivity {
 
         // create object to refer to register Button
         Button registerButton = (Button) findViewById(R.id.RegisterButton);
+        Button mainInterfaceButton = (Button) findViewById(R.id.buttonLogin);
         // create event listener for click that will point from Main Activity to LoginActivity
         registerButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            }
-        });
-
+    }
+});
+        mainInterfaceButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, MainInterface.class));
+     }
+});
     }
 
 
