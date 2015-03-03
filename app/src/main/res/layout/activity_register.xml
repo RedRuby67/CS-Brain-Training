@@ -57,10 +57,10 @@
         android:inputType="date"
         android:ems="10"
         android:id="@+id/editText6"
-        android:hint="11/11/1111"
+        android:hint="dd/mm/yyyy"
         android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5" />
 
     <Button
         android:layout_width="wrap_content"
@@ -76,8 +76,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/userBirthDate"
         android:id="@+id/textView5"
+        android:layout_marginTop="29dp"
         android:layout_below="@+id/editText5"
         android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
-        android:layout_marginTop="27dp" />
+        android:layout_alignStart="@+id/editText5" />
 </RelativeLayout>
