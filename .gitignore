@@ -4,3 +4,15 @@
 /.idea/libraries
 .DS_Store
 /build
+
+*.iml
+*.iws
+*.ipr
+.idea/
+.gradle/
+local.properties
+
+*/build/
+
+*~
+*.swp
