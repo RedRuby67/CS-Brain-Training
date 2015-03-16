@@ -8,15 +8,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-// import needed libraries for event handling
+// import needed libraries for event handling and gestures
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import android.view.MotionEvent;
+import android.view.GestureDetector;
+import android.support.v4.view.GestureDetectorCompat;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements
+GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     private static final String TAG = "debugMessage";
+    private GestureDetectorCompat gestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,61 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+
+    // methods for gestures
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return true;
+    }
+
+
 
 
     @Override
