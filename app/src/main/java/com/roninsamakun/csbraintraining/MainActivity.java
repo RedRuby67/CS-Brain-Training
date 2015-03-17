@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-
 // import needed libraries for event handling and gestures
 import android.view.View;
 import android.widget.TextView;

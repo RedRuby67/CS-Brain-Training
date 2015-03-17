@@ -1,19 +1,25 @@
 package com.roninsamakun.csbraintraining;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+import com.facebook.Session;
+import com.facebook.widget.LoginButton;
 // import needed libraries for event handling and gestures
 import android.widget.TextView;
 import android.view.MotionEvent;
 import android.view.GestureDetector;
 import android.support.v4.view.GestureDetectorCompat;
-
 
 
 public class LoginActivity extends ActionBarActivity implements
@@ -25,6 +31,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
         // create object to refer to register Button
         Button registerButton = (Button) findViewById(R.id.RegisterButton);
