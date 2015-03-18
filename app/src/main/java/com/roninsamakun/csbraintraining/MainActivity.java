@@ -1,18 +1,16 @@
 package com.roninsamakun.csbraintraining;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-// import needed libraries for event handling and gestures
-import android.view.View;
-import android.widget.TextView;
 import android.view.MotionEvent;
-import android.view.GestureDetector;
-import android.support.v4.view.GestureDetectorCompat;
+
+// import needed libraries for event handling and gestures
 
 
 public class MainActivity extends ActionBarActivity implements
@@ -26,14 +24,9 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // create object to refer to start Button
-        Button startButton = (Button) findViewById(R.id.GetStartedButton);
-        // create event listener for click that will point from Main Activity to LoginActivity
-        startButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            }
-        });
+        //create the gestureDetector object
+        this.gestureDetector = new GestureDetectorCompat(this,this);
+        gestureDetector.setOnDoubleTapListener(this);
     }
 
     // methods for gestures
@@ -46,6 +39,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
+        //on single tap, change view
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
         return true;
     }
 
