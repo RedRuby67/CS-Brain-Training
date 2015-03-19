@@ -5,18 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.roninsamakun.csbraintraining.MainInterface"
-    android:id="@+id/textView">
-
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="See your Progress"-->
-        <!--android:id="@+id/button2"-->
-        <!--android:layout_below="@+id/button5"-->
-        <!--android:layout_alignRight="@+id/button4"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginTop="47dp" />-->
+    android:id="@+id/textView"
+    android:background="#ff607d8b">
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +16,8 @@
         android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="74dp" />
+        android:layout_marginTop="74dp"
+        android:textColor="#eceff1" />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,18 +25,13 @@
         android:text="Go to your games for today"
         android:id="@+id/button3"
         android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp" />
-
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="How do I compare?"-->
-        <!--android:id="@+id/button4"-->
-        <!--android:layout_alignBaseline="@+id/button2"-->
-        <!--android:layout_alignBottom="@+id/button2"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true" />-->
+        android:layout_marginTop="61dp"
+        android:background="#eceff1"
+        android:textColor="#546e7a"
+        android:layout_alignLeft="@+id/button5"
+        android:layout_alignStart="@+id/button5"
+        android:layout_alignRight="@+id/button5"
+        android:layout_alignEnd="@+id/button5" />
 
     <Button
         android:layout_width="wrap_content"
@@ -54,30 +40,37 @@
         android:id="@+id/button5"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
+        android:layout_marginTop="46dp"
+        android:background="#eceff1"
+        android:textColor="#546e7a"
+        android:padding="16dp"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/buttonButtons"
-        android:layout_below="@+id/button5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Review Progress"
-            android:id="@+id/button" />
+    <!--I was thinking that the following items are better for an items menu situation-->
+    <!--we might even want to make this whole screen just a list of puzzles or something-->
+    <!-- -casey-->
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:id="@+id/buttonButtons"-->
+        <!--android:layout_below="@+id/button5"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true">-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How do I compare?"
-            android:id="@+id/button2" />
-    </LinearLayout>
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Review Progress"-->
+            <!--android:id="@+id/button" />-->
+
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="How do I compare?"-->
+            <!--android:id="@+id/button2" />-->
+    <!--</LinearLayout>-->
 
 </RelativeLayout>
