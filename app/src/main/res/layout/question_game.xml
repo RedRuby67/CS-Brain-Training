@@ -20,14 +20,15 @@
         android:layout_below="@+id/questionText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="131dp" />
+        android:layout_marginTop="100dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Text for answer B"
         android:id="@+id/answerB"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/answerA"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -36,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Text for answer C"
         android:id="@+id/answerC"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/answerB"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -46,8 +47,8 @@
         android:layout_height="wrap_content"
         android:text="Text for answer D"
         android:id="@+id/answerD"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/answerC"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="48dp" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

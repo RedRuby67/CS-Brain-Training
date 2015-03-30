@@ -1,5 +1,6 @@
 package com.roninsamakun.csbraintraining;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 
 // import needed libraries for event handling and gestures
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.view.MotionEvent;
 import android.view.GestureDetector;
@@ -21,7 +23,17 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_interface);
+        setContentView(R.layout.question_game);
+
+        // create object to refer to register Button
+        Button goToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
+        // create event listener for click that will point from Main Activity to LoginActivity
+        goToGamesButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(MainInterface.this, GameActivity.class));
+            }
+        });
+
     }
 
     // methods for gestures
