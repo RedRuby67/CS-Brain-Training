@@ -1,0 +1,20 @@
+I figured now would be a good time to start cataloging bugs, organized by Activity
+
+GameActivity:
+
+
+
+LoginActivity:
+    -If I type in my first name (not in the Facebook login) and then click away, the app crashes.
+    Tested on Nexus 5 simulation and my phone (HTC G2).
+
+
+MainActivity:
+
+
+
+MainInterface:
+
+
+
+RegisterActivity:
