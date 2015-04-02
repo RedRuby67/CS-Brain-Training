@@ -26,6 +26,35 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_game);
+
+        Button answerA = (Button) findViewById(R.id.answerA);
+        Button answerB = (Button) findViewById(R.id.answerB);
+        Button answerC = (Button) findViewById(R.id.answerC);
+        Button answerD = (Button) findViewById(R.id.answerD);
+
+        // TODO: Remove these comments and actually implement a right/wrong system
+
+        answerA.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                // Do something to indicate correct or incorrectness
+            }
+        });
+        answerB.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                // Do something to indicate correct or incorrectness
+            }
+        });
+        answerC.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                // Do something to indicate correct or incorrectness
+            }
+        });
+        answerD.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                // Do something to indicate correct or incorrectness
+            }
+        });
+
     }
 
     // methods for gestures
