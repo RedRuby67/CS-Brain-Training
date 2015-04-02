@@ -41,7 +41,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     public boolean onSingleTapConfirmed(MotionEvent e) {
         //on single tap, change view
         //startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        startActivity(new Intent(MainActivity.this, GameActivity.class));
+        startActivity(new Intent(MainActivity.this, MainInterface.class));
         return true;
     }
 

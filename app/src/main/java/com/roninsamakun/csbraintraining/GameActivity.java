@@ -25,7 +25,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_interface);
+        setContentView(R.layout.question_game);
     }
 
     // methods for gestures

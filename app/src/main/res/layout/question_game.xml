@@ -15,7 +15,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Text for answer A"
+        android:text="Text for answer A (incorrect)"
         android:id="@+id/answerA"
         android:layout_below="@+id/questionText"
         android:layout_alignParentLeft="true"
@@ -25,7 +25,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Text for answer B"
+        android:text="Text for answer B (correct)"
         android:id="@+id/answerB"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/answerA"
@@ -35,7 +35,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Text for answer C"
+        android:text="Text for answer C (incorrect)"
         android:id="@+id/answerC"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/answerB"
@@ -45,7 +45,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Text for answer D"
+        android:text="Text for answer D (incorrect)"
         android:id="@+id/answerD"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/answerC"

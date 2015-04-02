@@ -23,11 +23,11 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.question_game);
+        setContentView(R.layout.activity_main_interface);
 
-        // create object to refer to register Button
+        // create object to refer to Games Button
         Button goToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
-        // create event listener for click that will point from Main Activity to LoginActivity
+        // create event listener for click that will point to GameActivity
         goToGamesButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(MainInterface.this, GameActivity.class));
