@@ -32,6 +32,10 @@
             android:label="@string/title_activity_register" >
         </activity>
         <activity
+            android:name=".GameActivity"
+            android:label="GameActivity" >
+        </activity>
+        <activity
             android:name="com.facebook.LoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:label="FacebookLoginActivity"
