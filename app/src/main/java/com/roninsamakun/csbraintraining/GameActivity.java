@@ -1,19 +1,17 @@
 package com.roninsamakun.csbraintraining;
 
 
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
+import android.support.v7.app.ActionBarActivity;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 
 // import needed libraries for event handling and gestures
-import android.view.View;
-import android.widget.TextView;
-import android.view.MotionEvent;
-import android.view.GestureDetector;
-import android.support.v4.view.GestureDetectorCompat;
 
 
 public class GameActivity extends ActionBarActivity  implements
@@ -26,6 +24,10 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_game);
+
+        // Set up gestures so it no longer crashes
+        this.gestureDetector = new GestureDetectorCompat(this,this);
+        gestureDetector.setOnDoubleTapListener(this);
 
         Button answerA = (Button) findViewById(R.id.answerA);
         Button answerB = (Button) findViewById(R.id.answerB);
