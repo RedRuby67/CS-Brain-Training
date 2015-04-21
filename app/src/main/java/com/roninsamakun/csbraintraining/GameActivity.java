@@ -10,6 +10,9 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Random;
 
 // import needed libraries for event handling and gestures
 
@@ -29,15 +32,23 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
 
+        TextView problem = (TextView) findViewById(R.id.questionText);
         Button answerA = (Button) findViewById(R.id.answerA);
         Button answerB = (Button) findViewById(R.id.answerB);
         Button answerC = (Button) findViewById(R.id.answerC);
         Button answerD = (Button) findViewById(R.id.answerD);
 
+        // Variable n keeps track of the number of possible questions
+        int totalQuestions = 2;
+        // Randomly generate a number between 0 and totalQuestions to determine which question loads
+        int questionNumber = new Random().nextInt(totalQuestions);
+        questionNumber++;
+
+
         // TODO: Remove these comments and actually implement a right/wrong system
 
-        answerA.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        answerA.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 // Do something to indicate correct or incorrectness
             }
         });
@@ -60,7 +71,6 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     }
 
     // methods for gestures
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
