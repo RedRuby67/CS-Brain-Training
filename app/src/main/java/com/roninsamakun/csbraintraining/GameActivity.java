@@ -56,10 +56,21 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
                 { "What is the correct HTML tag for a line break?", "<lb>", "<bl>", "<br>", "<break>", "3", "html" };
         String[] question4 = new String[]
                 { "How many times will 'hello' print from the following code?\n\tfor(i=2; i<=4; i++)\n\t\tprint 'hello';", "3", "2", "4", "None of the above", "1", "c" };
+        String[] question5 = new String[]
+                { "'#!/usr/bin/python' is an example of:", "a header file", "a shebang", "an executable", "an argument", "2", "unix" };
+        String[] question6 = new String[]
+                { "All HTML documents must start with:", "<html>", "<begin>", "<body>", "<!DOCTYPE html>", "4", "html" };
+        String[] question7 = new String[]
+                { "question7", "answerA", "answerB", "answerC", "answerD", "1", "category" };
         String[] questionX = new String[]
                 { "questionX", "answerA", "answerB", "answerC", "answerD", "1", "category" };
 
-        final String[][] QuestionsArray = new String[][] { question1, question2, question3, question4, questionX };
+        final String[][] QuestionsArray = new String[][]
+                {
+                        question1, question2, question3, question4, question5,
+                        question6, question7,
+                        questionX
+                };
 
         int totalQuestions = QuestionsArray.length;
         // Randomly generate a number in [0,totalQuestions) to determine which question loads
@@ -73,10 +84,10 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         answerD.setText(QuestionsArray[questionNumber][4]);
 
         final Toast correct = Toast.makeText(GameActivity.this, "Correct!", Toast.LENGTH_SHORT);
-        correct.setGravity(Gravity.CENTER, 0, 0); // Or, you can set Margin by: toast.setMargin(50,50);
+        correct.setGravity(Gravity.CENTER, 0, 0);
 
         final Toast incorrect = Toast.makeText(GameActivity.this, "Incorrect", Toast.LENGTH_SHORT);
-        incorrect.setGravity(Gravity.CENTER, 0, 0); // Or, you can set Margin by: toast.setMargin(50,50);
+        incorrect.setGravity(Gravity.CENTER, 0, 0);
 
 
         // TODO: Remove these comments and actually implement a right/wrong system
