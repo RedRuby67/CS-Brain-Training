@@ -20,7 +20,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to your games for today"
+        android:text="@string/test_yourself"
         android:id="@+id/GoToGamesButton"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="61dp"

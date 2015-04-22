@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -38,15 +40,17 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         Button answerC = (Button) findViewById(R.id.answerC);
         Button answerD = (Button) findViewById(R.id.answerD);
 
-        int totalQuestions = 2;
+        int totalQuestions = 1;
         // Randomly generate a number between 0 and totalQuestions to determine which question loads
-        int questionNumber = new Random().nextInt(totalQuestions);
+        final int questionNumber = new Random().nextInt(totalQuestions);
 
         // Begin storing question data
-        String[] question1 = new String[] { "question1", "answerA", "answerB", "answerC", "answerD", "corr#" };
-        String[] question2 = new String[] { "question2", "answerA", "answerB", "answerC", "answerD", "corr#" };
+        String[] question1 = new String[]
+                { "A makefile has:", "a target", "dependencies", "commands", "all the above", "4", "Unix" };
+        String[] question2 = new String[]
+                { "question2", "answerA", "answerB", "answerC", "answerD", "corr#", "category" };
 
-        String[][] QuestionsArray = new String[][] { question1, question2 };
+        final String[][] QuestionsArray = new String[][] { question1, question2 };
 
         // Set text for question and answers
         problem.setText(QuestionsArray[questionNumber][0]);
@@ -55,26 +59,53 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         answerC.setText(QuestionsArray[questionNumber][3]);
         answerD.setText(QuestionsArray[questionNumber][4]);
 
+        final Toast correct = Toast.makeText(GameActivity.this, "Correct!", Toast.LENGTH_SHORT);
+        correct.setGravity(Gravity.CENTER, 0, 0); // Or, you can set Margin by: toast.setMargin(50,50);
+
+        final Toast incorrect = Toast.makeText(GameActivity.this, "Incorrect", Toast.LENGTH_SHORT);
+        incorrect.setGravity(Gravity.CENTER, 0, 0); // Or, you can set Margin by: toast.setMargin(50,50);
+
+
         // TODO: Remove these comments and actually implement a right/wrong system
 
         answerA.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Do something to indicate correct or incorrectness
+                if(QuestionsArray[questionNumber][5].equals("1")) {
+                    correct.show();
+                }
+                else {
+                    incorrect.show();
+                }
             }
         });
         answerB.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                // Do something to indicate correct or incorrectness
+                if(QuestionsArray[questionNumber][5].equals("2")) {
+                    correct.show();
+                }
+                else {
+                    incorrect.show();
+                }
             }
         });
         answerC.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                // Do something to indicate correct or incorrectness
+                if(QuestionsArray[questionNumber][5].equals("3")) {
+                    correct.show();
+                }
+                else {
+                    incorrect.show();
+                }
             }
         });
         answerD.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                // Do something to indicate correct or incorrectness
+                if(QuestionsArray[questionNumber][5].equals("4")) {
+                    correct.show();
+                }
+                else {
+                    incorrect.show();
+                }
             }
         });
 
