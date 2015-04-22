@@ -38,12 +38,22 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         Button answerC = (Button) findViewById(R.id.answerC);
         Button answerD = (Button) findViewById(R.id.answerD);
 
-        // Variable n keeps track of the number of possible questions
         int totalQuestions = 2;
         // Randomly generate a number between 0 and totalQuestions to determine which question loads
         int questionNumber = new Random().nextInt(totalQuestions);
-        questionNumber++;
 
+        // Begin storing question data
+        String[] question1 = new String[] { "question1", "answerA", "answerB", "answerC", "answerD", "corr#" };
+        String[] question2 = new String[] { "question2", "answerA", "answerB", "answerC", "answerD", "corr#" };
+
+        String[][] QuestionsArray = new String[][] { question1, question2 };
+
+        // Set text for question and answers
+        problem.setText(QuestionsArray[questionNumber][0]);
+        answerA.setText(QuestionsArray[questionNumber][1]);
+        answerB.setText(QuestionsArray[questionNumber][2]);
+        answerC.setText(QuestionsArray[questionNumber][3]);
+        answerD.setText(QuestionsArray[questionNumber][4]);
 
         // TODO: Remove these comments and actually implement a right/wrong system
 
