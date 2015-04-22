@@ -10,35 +10,84 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 // import needed libraries for event handling and gestures
 
 
 public class MainInterface extends ActionBarActivity  implements
-GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener,
+View.OnClickListener {
 
     private GestureDetectorCompat gestureDetector;
+
+    UserLocalStore userLocalStore;
+    EditText etUsername;
+    Button logoutButton, GoToGamesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_interface);
 
+        etUsername = (EditText) findViewById(R.id.etUsername);
+        logoutButton = (Button) findViewById(R.id.logoutButton);
+        GoToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
+
         // Set up gestures so it no longer crashes
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
 
-        // create object to refer to Games Button
-        Button goToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
-        // create event listener for click that will point to GameActivity
-        goToGamesButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(MainInterface.this, GameActivity.class));
-            }
-        });
+        logoutButton.setOnClickListener(this);
+        GoToGamesButton.setOnClickListener(this);
+
+        userLocalStore = new UserLocalStore(this);
+
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.logoutButton:
+                userLocalStore.clearUserData();
+                userLocalStore.setUserLoggedIn(false);
+                startActivity(new Intent(MainInterface.this, LoginActivity.class));
+                break;
+            case R.id.GoToGamesButton:
+                startActivity(new Intent(MainInterface.this, GameActivity.class));
+                break;
+        }
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (authenticate() == true) {
+            displayUserDetails();
+        } else {
+            startActivity(new Intent(MainInterface.this, LoginActivity.class));
+        }
+    }
+
+    private boolean authenticate() {
+
+        if (userLocalStore.getLoggedInUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return false;
+        }
+        return true;
+
+    }
+
+    private void displayUserDetails() {
+        User user = userLocalStore.getLoggedInUser();
+        etUsername.setText(user.user_name);
+    }
+
+    
     // methods for gestures
 
 

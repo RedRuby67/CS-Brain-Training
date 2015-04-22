@@ -1,5 +1,6 @@
 package com.roninsamakun.csbraintraining;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import com.facebook.Session;
 import com.facebook.widget.LoginButton;
 // import needed libraries for event handling and gestures
+import android.widget.EditText;
 import android.widget.TextView;
 import android.view.MotionEvent;
 import android.view.GestureDetector;
@@ -23,32 +25,84 @@ import android.support.v4.view.GestureDetectorCompat;
 
 
 public class LoginActivity extends ActionBarActivity implements
-GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener,
+View.OnClickListener {
 
     private GestureDetectorCompat gestureDetector;
+
+    Button buttonLogin, RegisterButton;
+    EditText UserNameText, PasswordText;
+
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        UserNameText = (EditText) findViewById(R.id.UserNameText);
+        PasswordText = (EditText) findViewById(R.id.PasswordText);
+        buttonLogin = (Button) findViewById(R.id.buttonLogin);
+        RegisterButton = (Button) findViewById(R.id.RegisterButton);
+
+        buttonLogin.setOnClickListener(this);
+        RegisterButton.setOnClickListener(this);
+
+        this.gestureDetector = new GestureDetectorCompat(this, this);
+        gestureDetector.setOnDoubleTapListener(this);
+
+    }
 
 
-        // create object to refer to register Button
-        Button registerButton = (Button) findViewById(R.id.RegisterButton);
-        Button mainInterfaceButton = (Button) findViewById(R.id.buttonLogin);
-        // create event listener for click that will point from Main Activity to LoginActivity
-        registerButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.buttonLogin:
+                String user_name = UserNameText.getText().toString();
+                String password = PasswordText.getText().toString();
+
+                User user = new User(user_name, password);
+
+                authenticate(user);
+
+                //userLocalStore.storeUserData(user);
+                //userLocalStore.setUserLoggedIn(true);
+
+                break;
+
+            case R.id.RegisterButton:
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                break;
+        }
     }
-});
-        mainInterfaceButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainInterface.class));
-     }
-});
+
+    private void authenticate(User user) {
+        ServerRequests serverRequest = new ServerRequests(this);
+        serverRequest.fetchUserDataAsyncTask(user, new GetUserCallback() {
+            @Override
+            public void done(User returnedUser) {
+                if (returnedUser == null) {
+                    showErrorMessage();
+                } else {
+                    logUserIn(returnedUser);
+                }
+            }
+        });
     }
+
+    private void showErrorMessage() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(LoginActivity.this);
+        dialogBuilder.setMessage("Incorrect user details");
+        dialogBuilder.setPositiveButton("Ok", null);
+        dialogBuilder.show();
+    }
+
+    private void logUserIn(User returnedUser) {
+        userLocalStore.storeUserData(returnedUser);
+        userLocalStore.setUserLoggedIn(true);
+        startActivity(new Intent(this, MainInterface.class));
+    }
+
 
     // methods for gestures
     @Override

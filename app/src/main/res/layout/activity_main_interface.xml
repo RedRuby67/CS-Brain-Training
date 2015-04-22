@@ -12,32 +12,47 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Welcome"
-        android:id="@+id/textView3"
+        android:id="@+id/WelcomeBackText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="74dp" />
+        />
+
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WelcomeBackText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="67dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/test_yourself"
         android:id="@+id/GoToGamesButton"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="61dp"
-        android:layout_alignLeft="@+id/ReviewButton"
-        android:layout_alignStart="@+id/ReviewButton"
-        android:layout_alignRight="@+id/ReviewButton"
-        android:layout_alignEnd="@+id/ReviewButton" />
+        android:layout_below="@+id/etUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Review Problems and Concepts"
         android:id="@+id/ReviewButton"
-        android:layout_below="@+id/GoToGamesButton"
+        android:layout_alignTop="@+id/GoToGamesButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:padding="16dp"/>
+        android:layout_marginTop="75dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:id="@+id/logoutButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"/>
 
 
     <!--I was thinking that the following items are better for an items menu situation-->

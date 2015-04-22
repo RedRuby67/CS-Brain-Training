@@ -9,27 +9,69 @@ import android.widget.Button;
 
 // import needed libraries for event handling and gestures
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.view.MotionEvent;
 import android.view.GestureDetector;
 import android.support.v4.view.GestureDetectorCompat;
 
 
 public class RegisterActivity extends ActionBarActivity  implements
-GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener,
+View.OnClickListener {
+
 
     private GestureDetectorCompat gestureDetector;
+
+    Button SignUpButton, GoBackButton;
+    EditText user_nameText, emailText, passwordText, ageText;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // create object to refer to sign up Button
-        Button signupButton = (Button) findViewById(R.id.SignUpButton);
-        // create event listener for click that will point from Main Activity to LoginActivity
-        signupButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        SignUpButton = (Button) findViewById(R.id.SignUpButton);
+        GoBackButton = (Button) findViewById(R.id.GoBackButton);
+        user_nameText = (EditText) findViewById(R.id.user_nameText);
+        emailText = (EditText) findViewById(R.id.emailText);
+        passwordText = (EditText) findViewById(R.id.passwordText);
+        ageText = (EditText) findViewById(R.id.ageText);
+
+        SignUpButton.setOnClickListener(this);
+        GoBackButton.setOnClickListener(this);
+
+        this.gestureDetector = new GestureDetectorCompat(this, this);
+        gestureDetector.setOnDoubleTapListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.SignUpButton:
+                String user_name = user_nameText.getText().toString();
+                String email = emailText.getText().toString();
+                String password = passwordText.getText().toString();
+                int age = Integer.parseInt(ageText.getText().toString());
+
+                User user = new User(user_name, email, password, age);
+                registerUser(user);
+                break;
+
+            case R.id.GoBackButton:
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                break;
+
+        }
+    }
+
+    private void registerUser(User user) {
+        ServerRequests serverRequest = new ServerRequests(this);
+        serverRequest.storeUserDataInBackground(user, new GetUserCallback() {
+            @Override
+            public void done(User returnedUser) {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
