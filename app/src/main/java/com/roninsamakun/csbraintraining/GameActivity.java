@@ -1,6 +1,7 @@
 package com.roninsamakun.csbraintraining;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -40,17 +41,23 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         Button answerC = (Button) findViewById(R.id.answerC);
         Button answerD = (Button) findViewById(R.id.answerD);
 
-        int totalQuestions = 1;
-        // Randomly generate a number between 0 and totalQuestions to determine which question loads
-        final int questionNumber = new Random().nextInt(totalQuestions);
-
         // Begin storing question data
         String[] question1 = new String[]
-                { "A makefile has:", "a target", "dependencies", "commands", "all the above", "4", "Unix" };
+                { "A makefile has:", "a target", "dependencies", "commands", "all the above", "4", "unix" };
         String[] question2 = new String[]
-                { "question2", "answerA", "answerB", "answerC", "answerD", "corr#", "category" };
+                { "In C++, lines are terminated with a", "colon (:)", "semicolon (;)", "period (.)", "forward-slash (/)", "2", "cpp" };
+        String[] question3 = new String[]
+                { "What is the correct HTML tag for a line break?", "<lb>", "<bl>", "<br>", "<break>", "3", "html" };
+        String[] question4 = new String[]
+                { "How many times will 'hello' print from the following code?\n\tfor(i=2; i<=4; i++)\n\t\tprint 'hello';", "3", "2", "4", "None of the above", "1", "c" };
+        String[] questionX = new String[]
+                { "questionX", "answerA", "answerB", "answerC", "answerD", "1", "category" };
 
-        final String[][] QuestionsArray = new String[][] { question1, question2 };
+        final String[][] QuestionsArray = new String[][] { question1, question2, question3, question4, questionX };
+
+        int totalQuestions = QuestionsArray.length;
+        // Randomly generate a number in [0,totalQuestions) to determine which question loads
+        final int questionNumber = new Random().nextInt(totalQuestions);
 
         // Set text for question and answers
         problem.setText(QuestionsArray[questionNumber][0]);
@@ -72,6 +79,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v) {
                 if(QuestionsArray[questionNumber][5].equals("1")) {
                     correct.show();
+                    startActivity(new Intent(GameActivity.this, GameActivity.class));
                 }
                 else {
                     incorrect.show();
@@ -82,6 +90,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("2")) {
                     correct.show();
+                    startActivity(new Intent(GameActivity.this, GameActivity.class));
                 }
                 else {
                     incorrect.show();
@@ -92,6 +101,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("3")) {
                     correct.show();
+                    startActivity(new Intent(GameActivity.this, GameActivity.class));
                 }
                 else {
                     incorrect.show();
@@ -102,6 +112,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("4")) {
                     correct.show();
+                    startActivity(new Intent(GameActivity.this, GameActivity.class));
                 }
                 else {
                     incorrect.show();
