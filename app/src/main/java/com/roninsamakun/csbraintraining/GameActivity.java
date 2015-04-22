@@ -35,6 +35,12 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
 
+        questionSetup();
+
+    }
+
+    public void questionSetup(){
+
         TextView problem = (TextView) findViewById(R.id.questionText);
         Button answerA = (Button) findViewById(R.id.answerA);
         Button answerB = (Button) findViewById(R.id.answerB);
@@ -79,7 +85,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v) {
                 if(QuestionsArray[questionNumber][5].equals("1")) {
                     correct.show();
-                    startActivity(new Intent(GameActivity.this, GameActivity.class));
+                    questionSetup();
                 }
                 else {
                     incorrect.show();
@@ -90,7 +96,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("2")) {
                     correct.show();
-                    startActivity(new Intent(GameActivity.this, GameActivity.class));
+                    questionSetup();
                 }
                 else {
                     incorrect.show();
@@ -101,7 +107,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("3")) {
                     correct.show();
-                    startActivity(new Intent(GameActivity.this, GameActivity.class));
+                    questionSetup();
                 }
                 else {
                     incorrect.show();
@@ -112,7 +118,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("4")) {
                     correct.show();
-                    startActivity(new Intent(GameActivity.this, GameActivity.class));
+                    questionSetup();
                 }
                 else {
                     incorrect.show();
