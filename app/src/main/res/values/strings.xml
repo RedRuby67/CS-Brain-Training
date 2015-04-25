@@ -12,7 +12,7 @@
     <string name="test_yourself">Test Yourself</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_game_activity">GameActivity</string>
-    <string name="username">Name</string>
+    <string name="username">User Name</string>
     <string name="userBirthDate"> Birth Date</string>
     <string name="facebook_app_id">464937956986572</string>
     <string name="ageText">Age</string>
