@@ -60,10 +60,10 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 			new String[] { "What will print? \n a = 'foo' \n b = 'bar' \n c = ' ' \n d = a + b + c + a + b \n print('d')", "d", "foobar foobar", "foobarfoobar", "foobar", "1", "python" },
 			new String[] { "What will print? \n a = 'foo' \n b = 'bar' \n c = ' ' \n d = a + b + c + a + b \n print(d)", "d", "foobar foobar", "foobarfoobar", "foobar", "2", "python" },
 			new String[] { "What will print? \n\n a = 5 \n b = 5 \n\n if (a - b < 0): \n    print('foo') \n elif (5 == 6): \n     print('baf') \n elif (7 == 8): \n     print('bof') \n else: \n     print('bar')", "foo", "bar", "baf", "bof", "2", "python" },
-			new String[] { "What will the following code print? \n\n mystring = 'Hello' \n mystring += ' world.' \n print mystring", "Hello World", "Helloworld", "Hello", " world", "1", "python" }
-			new String[] { "A makefile has:", "a target", "dependencies", "commands", "all the above", "4", "unix" }
-			new String[] { "In C++, lines are terminated with a", "colon (:)", "semicolon (;)", "period (.)", "forward-slash (/)", "2", "cpp" }
-			new String[] { "What is the correct HTML tag for a line break?", "<lb>", "<bl>", "<br>", "<break>", "3", "html" }
+			new String[] { "What will the following code print? \n\n mystring = 'Hello' \n mystring += ' world.' \n print mystring", "Hello World", "Helloworld", "Hello", " world", "1", "python" },
+			new String[] { "A makefile has:", "a target", "dependencies", "commands", "all the above", "4", "unix" },
+			new String[] { "In C++, lines are terminated with a", "colon (:)", "semicolon (;)", "period (.)", "forward-slash (/)", "2", "cpp" },
+			new String[] { "What is the correct HTML tag for a line break?", "<lb>", "<bl>", "<br>", "<break>", "3", "html" },
 			new String[] { "How many times will 'hello' print from the following code?\n\tfor(i=2; i<=4; i++)\n\t\tprint 'hello';", "3", "2", "4", "None of the above", "1", "c" }
 			};
 
