@@ -40,8 +40,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
         //on single tap, change view
-        //startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        startActivity(new Intent(MainActivity.this, MainInterface.class));
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        //startActivity(new Intent(MainActivity.this, MainInterface.class));
         return true;
     }
 
