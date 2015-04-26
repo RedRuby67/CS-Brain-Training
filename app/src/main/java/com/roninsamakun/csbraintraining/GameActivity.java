@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.Menu;
@@ -42,6 +43,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     public void questionSetup(){
 
         TextView problem = (TextView) findViewById(R.id.questionText);
+        problem.setMovementMethod(new ScrollingMovementMethod());
         Button answerA = (Button) findViewById(R.id.answerA);
         Button answerB = (Button) findViewById(R.id.answerB);
         Button answerC = (Button) findViewById(R.id.answerC);
@@ -54,7 +56,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 			new String[] {"How many times will the word 'hello' appear? \n\n c = 5 \n a = 7 \n b = 8 \n c = b - c \n for i in range(0, c): \n    print('hello')", "5", "7", "8", "3", "4", "python"},
 			new String[] { "A ladybug has two methods: move(), which moves her one space in the direction she's facing, and rotate(), which rotates the direction she's facing 90 degrees clockwise. \n If the ladybug is on a board like the one below, what instruction would you need to use to get the ladybug from point A (where she sits looking North) to point B. \n . . . . . \n .A. .X.X. \n .X. . .X. \n .X.X. .B.", "rotate, move, rotate, move, rotate x3, move, rotate, move, rotatex3", "rotatex3, move, rotate, move, rotate x3, move, rotate, move, rotate", " move, rotate, move, rotate, move x3, rotate, move", "rotate, move x2, rotate, move, rotate, move", "1", "python" },
 			new String[] { "You have a program like the one below. What would be returned if you call F(3)? \n def F(n): \n     if n == 0: return 0 \n     elif n == 1: return 1 \n     else: return F(n-1)+F(n-2)", "2", "1", "3", "5", "1", "python" },
-			new String[] { "Which of these is used as an escape character in strings?", "/", "\\", "'", "''", "2", "general"},
+			new String[] { "Which of these is used as an escape character in strings?", "Forward slash (/)", "Backslash (\\)", "Single Quote (')", "Double Quote ('')", "2", "general"},
 			new String[] { "What will c be equal to at the end of this program? \n a = 3 \n b = 2 \n c = a + b \n b = 4 \n a = a + b \n c = c + a", "12", "5", "10", "7", "1", "python" },
 			new String[] { "What will c be equal to at the end of this program? \n a = 4 \n b = 5 \n c = a \n d = c \n if (a + 2 > b + 1): \n     c = 2 * c \n else: \n     c = c / 2", "2", "4", "5", "3", "1", "python" },
 			new String[] { "What will print? \n a = 'foo' \n b = 'bar' \n c = ' ' \n d = a + b + c + a + b \n print('d')", "d", "foobar foobar", "foobarfoobar", "foobar", "1", "python" },
