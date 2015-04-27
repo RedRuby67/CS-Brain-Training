@@ -57,7 +57,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     public static final String[] categoryArray = {"python","html","c","cpp","unix","general"};
 
-    private int[] score = {0,0};
+    private static int[] score = {0,0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,7 +169,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     }
 
-    public int[] getScore() {
+    public static int[] getScore() {
         return score;
     }
 

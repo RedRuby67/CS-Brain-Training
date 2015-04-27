@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,10 @@ public class ReviewGames extends ActionBarActivity implements AdapterView.OnItem
         }
 
         mainListView.setOnItemClickListener(this);
+
+        TextView scoreoutof = (TextView) findViewById(R.id.textView3);
+        int[] totalscore = GameActivity.getScore();
+        scoreoutof.setText("Past Games \n Number Correct: " + totalscore[0] + "/" + totalscore[1]);
     }
 
 
