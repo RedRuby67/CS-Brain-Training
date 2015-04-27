@@ -109,6 +109,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
                     correct.show();
                     incrementScore(true);
                     AnswersEditor.putBoolean(String.valueOf(questionNumber), true);
+                    AnswersEditor.putString("correct", String.valueOf(score[0]));
+                    AnswersEditor.putString("answered", String.valueOf(score[1]));
                     AnswersEditor.commit();
                     questionSetup();
                 }
@@ -125,6 +127,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
                     correct.show();
                     incrementScore(true);
                     AnswersEditor.putBoolean(String.valueOf(questionNumber), true);
+                    AnswersEditor.putString("correct", String.valueOf(score[0]));
+                    AnswersEditor.putString("answered", String.valueOf(score[1]));
                     AnswersEditor.commit();
                     questionSetup();
                 }
@@ -141,6 +145,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
                     correct.show();
                     incrementScore(true);
                     AnswersEditor.putBoolean(String.valueOf(questionNumber), true);
+                    AnswersEditor.putString("correct", String.valueOf(score[0]));
+                    AnswersEditor.putString("answered", String.valueOf(score[1]));
                     AnswersEditor.commit();
                     questionSetup();
                 }
@@ -157,6 +163,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
                     correct.show();
                     incrementScore(true);
                     AnswersEditor.putBoolean(String.valueOf(questionNumber), true);
+                    AnswersEditor.putString("correct", String.valueOf(score[0]));
+                    AnswersEditor.putString("answered", String.valueOf(score[1]));
                     AnswersEditor.commit();
                     questionSetup();
                 }

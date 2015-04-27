@@ -54,8 +54,8 @@ public class ReviewGames extends ActionBarActivity implements AdapterView.OnItem
         mainListView.setOnItemClickListener(this);
 
         TextView scoreoutof = (TextView) findViewById(R.id.textView3);
-        int[] totalscore = GameActivity.getScore();
-        scoreoutof.setText("Past Games \n Number Correct: " + totalscore[0] + "/" + totalscore[1]);
+        String totalscore = Answers.getString("correct", "0") + "/" + Answers.getString("answered", "0");
+        scoreoutof.setText("Past Games \n Number Correct: " + totalscore);
     }
 
 
