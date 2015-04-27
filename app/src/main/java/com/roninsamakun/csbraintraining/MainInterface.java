@@ -10,35 +10,54 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 // import needed libraries for event handling and gestures
 
 
 public class MainInterface extends ActionBarActivity  implements
-GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener,
+View.OnClickListener {
 
     private GestureDetectorCompat gestureDetector;
+
+    EditText etUsername;
+    Button GoToGamesButton;
+    Button GoToReviewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_interface);
 
+        GoToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
+        GoToReviewButton = (Button) findViewById(R.id.ReviewButton);
+
         // Set up gestures so it no longer crashes
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
 
-        // create object to refer to Games Button
-        Button goToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
-        // create event listener for click that will point to GameActivity
-        goToGamesButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(MainInterface.this, GameActivity.class));
-            }
-        });
+        GoToGamesButton.setOnClickListener(this);
+        GoToReviewButton.setOnClickListener(this);
+
+
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.GoToGamesButton:
+                startActivity(new Intent(MainInterface.this, GameActivity.class));
+                break;
+            case R.id.ReviewButton:
+                startActivity(new Intent(MainInterface.this, ReviewGames.class));
+                break;
+        }
+    }
+
+
+    
     // methods for gestures
 
 

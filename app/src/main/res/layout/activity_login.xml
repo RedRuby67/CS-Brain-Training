@@ -21,20 +21,20 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/UserNameText"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp"
         android:width="320dp"
-        android:hint="Name" />
+        android:hint="User Name" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:id="@+id/PasswordText"
+        android:layout_below="@+id/UserNameText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp"
         android:width="320dp"
@@ -46,24 +46,18 @@
         android:text="@string/RegisterButtonText"
         android:id="@+id/RegisterButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:id="@+id/FPasswordButton"
-        android:layout_above="@+id/RegisterButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/PasswordText"
+        android:layout_alignEnd="@+id/PasswordText"
+        android:layout_marginBottom="60dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/buttonLogin"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/PasswordText"
         android:layout_centerHorizontal="true" />
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
