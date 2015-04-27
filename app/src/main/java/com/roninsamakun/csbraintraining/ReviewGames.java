@@ -1,17 +1,21 @@
 package com.roninsamakun.csbraintraining;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 
-public class ReviewGames extends ActionBarActivity {
+public class ReviewGames extends ActionBarActivity implements AdapterView.OnItemClickListener {
 
     private SharedPreferences Answers;
     private static final int PREFERENCE_MODE_PRIVATE = 0;
@@ -39,12 +43,14 @@ public class ReviewGames extends ActionBarActivity {
         mainListView.setAdapter(ArrayAdapter);
 
         // Populate the ListView with data from our questions.
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < GameActivity.totalQuestions; i++) {
             if (Answers.getBoolean(String.valueOf(i),false)) {
-                AnswerList.add("Question " + String.valueOf(i) + " was answered correctly.");
+                AnswerList.add(String.valueOf(i));
                 ArrayAdapter.notifyDataSetChanged();
             }
         }
+
+        mainListView.setOnItemClickListener(this);
     }
 
 
@@ -68,5 +74,15 @@ public class ReviewGames extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i = new Intent(ReviewGames.this, ReviewGamesInner.class);
+        int sendData = Integer.parseInt(String.valueOf(AnswerList.get(position)));
+        i.putExtra("QuestionName", sendData);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Log.d("hello", String.valueOf(AnswerList.get(position)));
+        startActivity(i);
     }
 }

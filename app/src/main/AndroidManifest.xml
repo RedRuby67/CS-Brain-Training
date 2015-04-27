@@ -50,6 +50,10 @@
             android:name=".ReviewGames"
             android:label="@string/title_activity_review_games" >
         </activity>
+        <activity
+            android:name=".ReviewGamesInner"
+            android:label="@string/title_activity_review_games_inner" >
+        </activity>
     </application>
 
 </manifest>
