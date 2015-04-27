@@ -99,8 +99,6 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         incorrect.setGravity(Gravity.CENTER, 0, 0); // Or, you can set Margin by: toast.setMargin(50,50);
 
 
-        // TODO: Remove these comments and actually implement a right/wrong system
-
         answerA.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(QuestionsArray[questionNumber][5].equals("1")) {
