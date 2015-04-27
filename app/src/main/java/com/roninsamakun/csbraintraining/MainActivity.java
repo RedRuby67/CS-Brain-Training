@@ -1,6 +1,7 @@
 package com.roninsamakun.csbraintraining;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -19,6 +20,10 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     private static final String TAG = "debugMessage";
     private GestureDetectorCompat gestureDetector;
 
+    private SharedPreferences Answers;
+    private SharedPreferences.Editor AnswersEditor;
+    private static final int PREFERENCE_MODE_PRIVATE = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,18 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         //create the gestureDetector object
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
+
+        // Set up the shared preferences editor
+        Answers = this.getSharedPreferences("ANSWERS",PREFERENCE_MODE_PRIVATE);
+        AnswersEditor = Answers.edit();
+
+        if (!Answers.getBoolean("firstTime", false)) {
+            for (int i = 0; i < GameActivity.totalQuestions; i++) {
+                AnswersEditor.putBoolean(String.valueOf(i), false);
+            }
+            AnswersEditor.putBoolean("firstTime",true);
+            AnswersEditor.commit();
+        }
     }
 
     // methods for gestures

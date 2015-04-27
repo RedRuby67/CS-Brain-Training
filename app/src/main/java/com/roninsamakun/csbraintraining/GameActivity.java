@@ -1,7 +1,7 @@
 package com.roninsamakun.csbraintraining;
 
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -27,6 +27,14 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     private GestureDetectorCompat gestureDetector;
 
+
+    private SharedPreferences Answers;
+    private SharedPreferences.Editor AnswersEditor;
+    private static final int PREFERENCE_MODE_PRIVATE = 0;
+
+    //When adding questions, make sure to change this!
+    public static int totalQuestions = 15;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +44,17 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
 
+//        // Set up the shared preferences editor
+        Answers = this.getSharedPreferences("ANSWERS",PREFERENCE_MODE_PRIVATE);
+        AnswersEditor = Answers.edit();
+//
+//        if (!Answers.getBoolean("firstTime", false)) {
+//            for (int i = 0; i < totalQuestions; i++) {
+//                AnswersEditor.putBoolean(String.valueOf(i), false);
+//            }
+//            AnswersEditor.putBoolean("firstTime",true);
+//            AnswersEditor.commit();
+//        }
         questionSetup();
 
     }
@@ -69,7 +88,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 			new String[] { "How many times will 'hello' print from the following code?\n\tfor(i=2; i<=4; i++)\n\t\tprint 'hello';", "3", "2", "4", "None of the above", "1", "c" }
 			};
 
-        int totalQuestions = QuestionsArray.length;
+//        int totalQuestions = QuestionsArray.length;
         // Randomly generate a number in [0,totalQuestions) to determine which question loads
         final int questionNumber = new Random().nextInt(totalQuestions);
 
@@ -93,6 +112,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v) {
                 if(QuestionsArray[questionNumber][5].equals("1")) {
                     correct.show();
+                    AnswersEditor.putBoolean(String.valueOf(questionNumber), true);
+                    AnswersEditor.commit();
                     questionSetup();
                 }
                 else {
@@ -104,6 +125,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("2")) {
                     correct.show();
+                    AnswersEditor.putBoolean(String.valueOf(questionNumber),true);
+                    AnswersEditor.commit();
                     questionSetup();
                 }
                 else {
@@ -115,6 +138,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("3")) {
                     correct.show();
+                    AnswersEditor.putBoolean(String.valueOf(questionNumber),true);
+                    AnswersEditor.commit();
                     questionSetup();
                 }
                 else {
@@ -126,6 +151,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
             public void onClick(View v){
                 if(QuestionsArray[questionNumber][5].equals("4")) {
                     correct.show();
+                    AnswersEditor.putBoolean(String.valueOf(questionNumber),true);
+                    AnswersEditor.commit();
                     questionSetup();
                 }
                 else {

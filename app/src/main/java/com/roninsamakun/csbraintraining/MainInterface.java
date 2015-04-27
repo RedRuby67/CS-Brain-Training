@@ -23,6 +23,7 @@ View.OnClickListener {
 
     EditText etUsername;
     Button GoToGamesButton;
+    Button GoToReviewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +31,14 @@ View.OnClickListener {
         setContentView(R.layout.activity_main_interface);
 
         GoToGamesButton = (Button) findViewById(R.id.GoToGamesButton);
+        GoToReviewButton = (Button) findViewById(R.id.ReviewButton);
 
         // Set up gestures so it no longer crashes
         this.gestureDetector = new GestureDetectorCompat(this,this);
         gestureDetector.setOnDoubleTapListener(this);
 
         GoToGamesButton.setOnClickListener(this);
+        GoToReviewButton.setOnClickListener(this);
 
 
 
@@ -46,6 +49,9 @@ View.OnClickListener {
         switch(v.getId()){
             case R.id.GoToGamesButton:
                 startActivity(new Intent(MainInterface.this, GameActivity.class));
+                break;
+            case R.id.ReviewButton:
+                startActivity(new Intent(MainInterface.this, ReviewGames.class));
                 break;
         }
     }
