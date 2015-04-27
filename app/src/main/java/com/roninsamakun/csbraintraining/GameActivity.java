@@ -77,7 +77,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
     public void questionSetup(){
 
-        TextView problem = (TextView) findViewById(R.id.questionText);
+        final TextView problem = (TextView) findViewById(R.id.questionText);
         problem.setMovementMethod(new ScrollingMovementMethod());
         Button answerA = (Button) findViewById(R.id.answerA);
         Button answerB = (Button) findViewById(R.id.answerB);
@@ -104,6 +104,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
         answerA.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                problem.scrollTo(0,0);
                 if(QuestionsArray[questionNumber][5].equals("1")) {
                     correct.show();
                     incrementScore(true);
@@ -119,6 +120,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         });
         answerB.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                problem.scrollTo(0,0);
                 if(QuestionsArray[questionNumber][5].equals("2")) {
                     correct.show();
                     incrementScore(true);
@@ -134,6 +136,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         });
         answerC.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                problem.scrollTo(0,0);
                 if(QuestionsArray[questionNumber][5].equals("3")) {
                     correct.show();
                     incrementScore(true);
@@ -149,6 +152,7 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         });
         answerD.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                problem.scrollTo(0,0);
                 if(QuestionsArray[questionNumber][5].equals("4")) {
                     correct.show();
                     incrementScore(true);
