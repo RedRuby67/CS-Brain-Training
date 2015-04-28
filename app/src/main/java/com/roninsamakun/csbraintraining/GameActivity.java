@@ -84,6 +84,8 @@ GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
         Button answerC = (Button) findViewById(R.id.answerC);
         Button answerD = (Button) findViewById(R.id.answerD);
 
+
+
 //        int totalQuestions = QuestionsArray.length;
         // Randomly generate a number in [0,totalQuestions) to determine which question loads
         final int questionNumber = new Random().nextInt(totalQuestions);
