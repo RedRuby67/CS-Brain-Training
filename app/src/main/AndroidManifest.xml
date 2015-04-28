@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.roninsamakun.csbraintraining">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-sdk tools:overrideLibrary="com.facebook.android"/>
+    package="com.roninsamakun.csbraintraining" >
+
+    <uses-sdk tools:overrideLibrary="com.facebook.android" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -37,10 +39,21 @@
         </activity>
         <activity
             android:name="com.facebook.LoginActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:label="FacebookLoginActivity"
-         />
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".ReviewGames"
+            android:label="@string/title_activity_review_games" >
+        </activity>
+        <activity
+            android:name=".ReviewGamesInner"
+            android:label="@string/title_activity_review_games_inner" >
+        </activity>
     </application>
 
 </manifest>
